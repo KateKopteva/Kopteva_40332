@@ -1,0 +1,157 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="~/Kopteva.UI.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="container">
+            <!--Панель навигации-->
+            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+                <!-- меню сайта -->
+                <a class="navbar-brand" href="#">Kopteva</a>
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="#">Lb 1</a>
+                    <a class="nav-item nav-link" href="#">Каталог</a>
+                    <a class="nav-item nav-link" href="#">Администрирование</a>
+                </div>
+                <!-- меню сайта - конец -->
+
+                <!-- Информация пользователя -->
+                <div class="dropdown ms-auto nav-color">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> Kopteva
+                        <img src="/Images/fish.png" width="30" alt="User" class="rounded nav-color" />
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li>
+                            <span class="dropdown-item-text">
+                                <img src="/Images/fish.png" width="50" alt="User" class="rounded" /> Kopteva
+                            </span>
+                        </li>
+
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <form id="logoutForm" class="form-inline" action="#">
+                                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+       <div class="container mt-5">
+        <h1>Лабораторная работа 1</h1>
+        
+        <h2>Список</h2>
+        <ol type="A">
+            <li>элемент 1 списка</li>
+            <li>элемент 2 списка</li>
+        </ol>
+        
+        <div class="form-section">
+            <h2>Форма</h2>
+            <form method="get" action="">
+                <!-- Checkboxes -->
+                <div class="mb-3 offset-2">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="checkbox1" name="checkbox1">
+                        <label class="form-check-label" for="checkbox1">
+                            Чек-бокс 1
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="checkbox2" name="checkbox2">
+                        <label class="form-check-label" for="checkbox2">
+                            Чек-бокс 2
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Radio buttons -->
+                <div class="mb-3 offset-2">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="radio1" name="radio" value="radio1">
+                        <label class="form-check-label" for="radio1">
+                            Радио-1
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="radio2" name="radio" value="radio2">
+                        <label class="form-check-label" for="radio2">
+                            Радио-2
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" id="radio3" name="radio" value="radio3">
+                        <label class="form-check-label" for="radio3">
+                            Радио-3
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Login field -->
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Логин:</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="login" placeholder="Введите имя">
+                    </div>
+                </div>
+
+                <!-- Password field -->
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label">Пароль:</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="password" placeholder="Введите пароль">
+                    </div>
+                </div>
+
+                <!-- Submit button -->
+                <div class="row mb-3">
+                    <div class="col-sm-10 offset-sm-2">
+                        <button type="submit" class="btn btn-submit">Отправить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="navbar navbar-dark navbar-expand-md bg-dark">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-item nav-link" href="http://www.facebook.com">
+                        <i class="fa-brands fa-facebook-f fa-2x"></i>
+                    </a>
+                    <a class="nav-item nav-link" href="http://www.vk.com">
+                        <i class="fa-brands fa-vk fa-2x"></i>
+                    </a>
+                    <a class="nav-item nav-link" href="http://www.twitter.com">
+                        <i class="fa-brands fa-twitter fa-2x"></i>
+                   </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+   
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+</body>
+</html>
