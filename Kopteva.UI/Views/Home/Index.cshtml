@@ -1,59 +1,7 @@
-﻿
-@{
-    Layout = null;
+﻿@{
+    ViewBag.Title = "Index";
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link href="~/lib/font-awesome/css/all.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="~/Kopteva.UI.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <div class="container">
-            <!--Панель навигации-->
-            <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-                <!-- меню сайта -->
-                <a class="navbar-brand" href="#">Kopteva</a>
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active" href="#">Lb 1</a>
-                    <a class="nav-item nav-link" href="#">Каталог</a>
-                    <a class="nav-item nav-link" href="#">Администрирование</a>
-                </div>
-                <!-- меню сайта - конец -->
-
-                <!-- Информация пользователя -->
-                <div class="dropdown ms-auto nav-color">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false"> Kopteva
-                        <img src="/Images/fish.png" width="30" alt="User" class="rounded nav-color" />
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li>
-                            <span class="dropdown-item-text">
-                                <img src="/Images/fish.png" width="50" alt="User" class="rounded" /> Kopteva
-                            </span>
-                        </li>
-
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li>
-                            <form id="logoutForm" class="form-inline" action="#">
-                                <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
-    <main class="container">
+<main class="container">
        <div class="container mt-5">
         <h1>Лабораторная работа 1</h1>
         
@@ -130,28 +78,3 @@
         </div>
     </div>
     </main>
-    <footer>
-        <div class="container">
-            <div class="navbar navbar-dark navbar-expand-md bg-dark">
-                <div class="navbar-nav ms-auto">
-                    <a class="nav-item nav-link" href="http://www.facebook.com">
-                        <i class="fa-brands fa-facebook-f fa-2x"></i>
-                    </a>
-                    <a class="nav-item nav-link" href="http://www.vk.com">
-                        <i class="fa-brands fa-vk fa-2x"></i>
-                    </a>
-                    <a class="nav-item nav-link" href="http://www.twitter.com">
-                        <i class="fa-brands fa-twitter fa-2x"></i>
-                   </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-   
-
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    
-</body>
-</html>

@@ -1,0 +1,19 @@
+﻿@{
+    // Получаем значения из ViewData
+    var controller = ViewData["Controller"]?.ToString()?.ToLower() ?? string.Empty;
+    var area = ViewData["Area"]?.ToString()?.ToLower() ?? string.Empty;
+}
+
+<!-- меню сайта -->
+<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Kopteva</a>
+<div class="navbar-nav">
+    <a class="nav-item nav-link @(controller == "home" && area == "" ? "active" : "")"
+       asp-area="" asp-controller="Home" asp-action="Index">Lb 1</a>
+    
+    <a class="nav-item nav-link @(controller == "product" && area == "" ? "active" : "")"
+       asp-area="" asp-controller="Product" asp-action="Index">Каталог</a>
+    
+    <a class="nav-item nav-link @(area == "admin" ? "active" : "")"
+       asp-area="Admin" asp-controller="" asp-action="Index">Администрирование</a>
+</div>
+<!-- меню сайта - конец -->

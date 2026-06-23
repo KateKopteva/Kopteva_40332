@@ -262,3 +262,6 @@ D:\БГУИР\Kopteva\Kopteva.UI\obj\Debug\net8.0\refint\Kopteva.UI.dll
 D:\БГУИР\Kopteva\Kopteva.UI\obj\Debug\net8.0\Kopteva.UI.pdb
 D:\БГУИР\Kopteva\Kopteva.UI\obj\Debug\net8.0\Kopteva.UI.genruntimeconfig.cache
 D:\БГУИР\Kopteva\Kopteva.UI\obj\Debug\net8.0\ref\Kopteva.UI.dll
+D:\БГУИР\Kopteva\Kopteva.UI\obj\Debug\net8.0\Kopteva.UI.sourcelink.json
+D:\БГУИР\Kopteva\Kopteva.UI\bin\Debug\net8.0\Tourist.Domain.dll
+D:\БГУИР\Kopteva\Kopteva.UI\bin\Debug\net8.0\Tourist.Domain.pdb

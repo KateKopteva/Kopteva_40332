@@ -2769,6 +2769,16 @@
         "runtime": {
           "lib/netcoreapp2.1/_._": {}
         }
+      },
+      "Tourist.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/Tourist.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Tourist.Domain.dll": {}
+        }
       }
     }
   },
@@ -7780,6 +7790,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Tourist.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Tourist.Domain/Tourist.Domain.csproj",
+      "msbuildProject": "../Tourist.Domain/Tourist.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7789,7 +7804,8 @@
       "Microsoft.AspNetCore.Identity.UI >= 8.0.23",
       "Microsoft.EntityFrameworkCore.SqlServer >= 8.0.23",
       "Microsoft.EntityFrameworkCore.Tools >= 8.0.23",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.23"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 8.0.23",
+      "Tourist.Domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -7823,7 +7839,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\БГУИР\\Kopteva\\Tourist.Domain\\Tourist.Domain.csproj": {
+              "projectPath": "D:\\БГУИР\\Kopteva\\Tourist.Domain\\Tourist.Domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
