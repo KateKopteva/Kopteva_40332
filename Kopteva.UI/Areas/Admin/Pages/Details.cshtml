@@ -1,0 +1,30 @@
+﻿@page "{id:int}"
+@model Kopteva.UI.Areas.Admin.Pages.DetailsModel
+@{
+    ViewData["Title"] = "Детали";
+}
+
+<h1 class="m-3">Детали: @Model.Attraction.Name</h1>
+
+<div class="card m-3" style="max-width: 600px;">
+    @if (Model.Attraction.Image != null)
+    {
+        <img src="@Url.Content("~/" + Model.Attraction.Image)" class="card-img-top" alt="@Model.Attraction.Name" />
+    }
+    <div class="card-body">
+        <h5 class="card-title">@Model.Attraction.Name</h5>
+        <p class="card-text">@Model.Attraction.Description</p>
+        <p><strong>Стоимость билета:</strong>
+            @(Model.Attraction.TicketPrice == 0
+                ? "Бесплатно"
+                : $"{Model.Attraction.TicketPrice:N2} руб.")
+        </p>
+        <p><strong>Маршрут:</strong> @Model.Attraction.TourRoute?.Name</p>
+    </div>
+    <div class="card-footer">
+        <a asp-page="./Edit" asp-route-id="@Model.Attraction.Id" class="btn btn-success">
+            <i class="fa-solid fa-pen-to-square"></i> Редактировать
+        </a>
+        <a asp-page="Index" class="btn btn-secondary">Назад к списку</a>
+    </div>
+</div>

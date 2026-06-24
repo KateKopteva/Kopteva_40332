@@ -1,0 +1,63 @@
+﻿@page "{id:int}"
+@model Kopteva.UI.Areas.Admin.Pages.EditModel
+@{
+    ViewData["Title"] = "Редактировать";
+}
+
+<h1 class="m-3">Редактировать: @Model.Attraction.Name</h1>
+
+<div class="row">
+    <div class="col-md-8 m-3">
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Attraction.Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Attraction.Name" class="control-label"></label>
+                <input asp-for="Attraction.Name" class="form-control" />
+                <span asp-validation-for="Attraction.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Attraction.Description" class="control-label"></label>
+                <textarea asp-for="Attraction.Description" class="form-control" rows="3"></textarea>
+                <span asp-validation-for="Attraction.Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Attraction.TicketPrice" class="control-label"></label>
+                <input asp-for="Attraction.TicketPrice" class="form-control" />
+                <span asp-validation-for="Attraction.TicketPrice" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Attraction.TourRouteId" class="control-label">Маршрут</label>
+                <select asp-for="Attraction.TourRouteId" class="form-control"
+                        asp-items="@(new SelectList(Model.Routes, "Id", "Name"))">
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label class="control-label">Текущее изображение:</label><br />
+                @if (Model.Attraction.Image != null)
+                {
+                    <img src="@Url.Content("~/" + Model.Attraction.Image)" width="150" />
+                }
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="ImageFile" class="control-label">Новое изображение</label>
+                <input asp-for="ImageFile" type="file" class="form-control" accept="image/*" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Сохранить" class="btn btn-primary" />
+                <a asp-page="Index" class="btn btn-secondary">Назад к списку</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

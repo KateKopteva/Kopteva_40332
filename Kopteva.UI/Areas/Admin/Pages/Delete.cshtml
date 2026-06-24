@@ -1,0 +1,34 @@
+﻿@page "{id:int}"
+@model Kopteva.UI.Areas.Admin.Pages.DeleteModel
+@{
+    ViewData["Title"] = "Удалить";
+}
+
+<h1 class="m-3 text-danger">Удалить достопримечательность</h1>
+
+<div class="alert alert-warning m-3">
+    <h3>Вы уверены, что хотите удалить <strong>@Model.Attraction.Name</strong>?</h3>
+</div>
+
+<div class="card m-3" style="max-width: 600px;">
+    @if (Model.Attraction.Image != null)
+    {
+        <img src="@Url.Content("~/" + Model.Attraction.Image)" class="card-img-top" alt="@Model.Attraction.Name" />
+    }
+    <div class="card-body">
+        <h5 class="card-title">@Model.Attraction.Name</h5>
+        <p class="card-text">@Model.Attraction.Description</p>
+        <p><strong>Стоимость билета:</strong>
+            @(Model.Attraction.TicketPrice == 0
+                ? "Бесплатно"
+                : $"{Model.Attraction.TicketPrice:N2} руб.")
+        </p>
+    </div>
+    <div class="card-footer">
+        <form method="post">
+            <input type="hidden" asp-for="Attraction.Id" />
+            <input type="submit" value="Удалить" class="btn btn-danger" />
+            <a asp-page="Index" class="btn btn-secondary">Отмена</a>
+        </form>
+    </div>
+</div>

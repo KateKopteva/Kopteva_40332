@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Tourist.Domain.Entities.Attraction>
+@{
+    ViewData["Title"] = "Каталог достопримечательностей";
+    var request = ViewContext.HttpContext.Request;
+    var returnUrl = request.Path + request.QueryString.ToUriComponent();
+    var routes = ViewData["categories"] as IEnumerable<Tourist.Domain.Entities.TourRoute>;
+}
+
+<h2 class="m-3">Достопримечательности Беларуси</h2>
+
+<div class="row">
+    <!-- Фильтр по маршруту -->
+    <div class="col-2 border-2">
+        <ul class="nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   data-bs-toggle="dropdown"
+                   href="#"
+                   role="button"
+                   aria-expanded="false">
+                    @ViewData["currentCategory"]
+                </a>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item"
+                           asp-controller="product"
+                           asp-action="index"
+                           asp-route-category="@null">Все</a>
+                    </li>
+                    @if (routes != null)
+                    {
+                        @foreach (var item in routes)
+                        {
+                            <li>
+                                <a class="dropdown-item"
+                                   asp-controller="product"
+                                   asp-action="index"
+                                   asp-route-category="@item.NormalizedName">
+                                    @item.Name
+                                </a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Карточки достопримечательностей -->
+    @if (Model != null && Model.Any())
+    {
+        <div class="col-10">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @foreach (var item in Model)
+                {
+                    <div class="col">
+                        <div class="card h-100 border-dark shadow-sm">
+                            @if (item.Image != null)
+                            {
+                                <img class="card-img-top"
+                                     src="@Url.Content("~/" + item.Image)"
+                                     alt="@item.Name"
+                                     style="height: 200px; object-fit: cover;" />
+                            }
+                            else
+                            {
+                                <div class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center"
+                                     style="height: 200px;">
+                                    Нет изображения
+                                </div>
+                            }
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name</h5>
+                                <p class="card-text">@item.Description</p>
+                                <h5>
+                                    <span class="badge bg-success">
+                                        @(item.TicketPrice == 0
+                                            ? "Бесплатно"
+                                            : $"{item.TicketPrice:N2} руб.")
+                                    </span>
+                                </h5>
+                            </div>
+                            <div class="card-footer text-center bg-white">
+                                <a class="btn btn-outline-primary"
+                                   asp-controller="cart"
+                                   asp-action="add"
+                                   asp-route-id="@item.Id"
+                                   asp-route-returnurl="@returnUrl">
+                                    Добавить в корзину
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="col-10">
+            <div class="alert alert-warning m-3">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                @ViewData["Error"]
+            </div>
+        </div>
+    }
+</div>
