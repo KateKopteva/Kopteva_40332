@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Kopteva.UI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8b855548354158b84eeb47b16e30892e023cf09")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54685c52e8f65ffe2b1a9769fa6217ec8b9faf75")]
 [assembly: System.Reflection.AssemblyProductAttribute("Kopteva.UI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Kopteva.UI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

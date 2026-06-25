@@ -1,4 +1,4 @@
-﻿using Tourist.Domain.Entities;
+﻿using Tourist.Domain.Interfaces;
 using Kopteva.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 

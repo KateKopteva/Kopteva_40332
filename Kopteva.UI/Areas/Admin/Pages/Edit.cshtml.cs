@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Tourist.Domain.Entities;
+using Tourist.Domain.Interfaces;
 
 namespace Kopteva.UI.Areas.Admin.Pages
 {

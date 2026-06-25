@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace Kopteva.UI.Data
+namespace Tourist.Domain.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {
