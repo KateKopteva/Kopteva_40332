@@ -2,6 +2,7 @@ wwwroot\css\site.css
 wwwroot\favicon.ico
 wwwroot\Images\brestskaya-krepost.jpg
 wwwroot\Images\ded-moroz.jpg
+wwwroot\Images\default-profile-picture.png
 wwwroot\Images\fish.png
 wwwroot\Images\kossovo.jpg
 wwwroot\Images\lida-zamok.jpg

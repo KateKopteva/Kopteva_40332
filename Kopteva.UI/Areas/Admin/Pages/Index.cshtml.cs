@@ -1,10 +1,12 @@
-﻿using Tourist.Domain.Entities;
-using Kopteva.UI.Services;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Tourist.Domain.Entities;
 using Tourist.Domain.Interfaces;
 
 namespace Kopteva.UI.Areas.Admin.Pages
 {
+    [Authorize(Policy = "admin")]  // ← ДОБАВЬТЕ ЭТОТ АТРИБУТ!
     public class IndexModel : PageModel
     {
         private readonly IAttractionService _attractionService;

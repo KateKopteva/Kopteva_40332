@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tourist.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+54685c52e8f65ffe2b1a9769fa6217ec8b9faf75")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7f06c2c48b96492f404a3d62492cb1e98b4a9fd9")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tourist.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tourist.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
