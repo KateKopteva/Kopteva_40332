@@ -5,22 +5,46 @@ using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 using Tourist.Domain.Data;
 using Tourist.Domain.Interfaces;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// ============================================
+// 1. РЕГИСТРАЦИЯ СЕРВИСОВ
+// ============================================
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddControllers();
 
+// Swagger (OpenAPI)
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Tourist API",
+        Version = "v1",
+        Description = "REST API для работы с достопримечательностями и маршрутами"
+    });
+});
+
+// ============================================
+// 2. СТРОКА ПОДКЛЮЧЕНИЯ
+// ============================================
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
-// Контекст Identity
+// ============================================
+// 3. КОНТЕКСТ IDENTITY
+// ============================================
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-// Identity с простыми паролями (Задание 1.1)
+// ============================================
+// 4. IDENTITY
+// ============================================
 builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
@@ -32,27 +56,38 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 })
 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-// Политика "admin" (Задание 1.2)
+// ============================================
+// 5. ПОЛИТИКА "admin"
+// ============================================
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("admin", policy =>
         policy.RequireClaim(ClaimTypes.Role, "admin"));
 });
 
-// NoOpEmailSender (Задание 1.3)
+// ============================================
+// 6. NoOpEmailSender
+// ============================================
 builder.Services.AddSingleton<IEmailSender<ApplicationUser>, NoOpEmailSender>();
 
-// Контекст предметной области
+// ============================================
+// 7. КОНТЕКСТ ПРЕДМЕТНОЙ ОБЛАСТИ
+// ============================================
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         connectionString,
         sqlOptions => sqlOptions.MigrationsAssembly("Tourist.Domain")
     ));
 
-// Сервисы предметной области
+// ============================================
+// 8. СЕРВИСЫ ПРЕДМЕТНОЙ ОБЛАСТИ
+// ============================================
 builder.Services.AddScoped<ITourRouteService, DbTourRouteService>();
 builder.Services.AddScoped<IAttractionService, DbAttractionService>();
 
+// ============================================
+// ПОСТРОЕНИЕ ПРИЛОЖЕНИЯ
+// ============================================
 var app = builder.Build();
 
 // Создание БД
@@ -65,7 +100,7 @@ using (var scope = app.Services.CreateScope())
         identityContext.Database.Migrate();
 
         var domainContext = services.GetRequiredService<AppDbContext>();
-        identityContext.Database.Migrate();
+        domainContext.Database.Migrate();
     }
     catch (Exception ex)
     {
@@ -74,11 +109,21 @@ using (var scope = app.Services.CreateScope())
     }
 }
 
-// Сидинг администратора (Задание 3)
+// Сидинг администратора
 await DbInit.SetupIdentityAdmin(app);
 
-// Middleware
-if (!app.Environment.IsDevelopment())
+// ============================================
+// MIDDLEWARE
+// ============================================
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Tourist API v1");
+    });
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
@@ -87,15 +132,20 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-app.UseAuthentication();  // ← ВАЖНО! Должен быть перед UseAuthorization
+app.UseAuthentication();
 app.UseAuthorization();
 
-// Маршруты
+// ============================================
+// МАРШРУТЫ
+// ============================================
+app.MapControllers();  // ← ВАЖНО для API контроллеров!
 app.MapRazorPages();
+
 app.MapAreaControllerRoute(
     name: "Admin",
     areaName: "Admin",
     pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Product}/{action=Index}/{id?}");

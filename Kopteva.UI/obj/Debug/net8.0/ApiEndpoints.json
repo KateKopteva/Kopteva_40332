@@ -1,1 +1,247 @@
-[]
+[
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.AttractionsApiController",
+    "Method": "GetAttractions",
+    "RelativePath": "api/AttractionsApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Tourist.Domain.Models.ResponseData\u00601[[System.Collections.Generic.List\u00601[[Tourist.Domain.Entities.Attraction, Tourist.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.AttractionsApiController",
+    "Method": "PostAttraction",
+    "RelativePath": "api/AttractionsApi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "attraction",
+        "Type": "Tourist.Domain.Entities.Attraction",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Tourist.Domain.Models.ResponseData\u00601[[Tourist.Domain.Entities.Attraction, Tourist.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.AttractionsApiController",
+    "Method": "GetAttraction",
+    "RelativePath": "api/AttractionsApi/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Tourist.Domain.Models.ResponseData\u00601[[Tourist.Domain.Entities.Attraction, Tourist.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.AttractionsApiController",
+    "Method": "PutAttraction",
+    "RelativePath": "api/AttractionsApi/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "attraction",
+        "Type": "Tourist.Domain.Entities.Attraction",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.AttractionsApiController",
+    "Method": "DeleteAttraction",
+    "RelativePath": "api/AttractionsApi/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.AttractionsApiController",
+    "Method": "UploadImage",
+    "RelativePath": "api/AttractionsApi/upload/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "file",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.TourRoutesApiController",
+    "Method": "GetTourRoutes",
+    "RelativePath": "api/TourRoutesApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Tourist.Domain.Entities.TourRoute, Tourist.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.TourRoutesApiController",
+    "Method": "PostTourRoute",
+    "RelativePath": "api/TourRoutesApi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tourRoute",
+        "Type": "Tourist.Domain.Entities.TourRoute",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Tourist.Domain.Entities.TourRoute",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.TourRoutesApiController",
+    "Method": "GetTourRoute",
+    "RelativePath": "api/TourRoutesApi/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Tourist.Domain.Entities.TourRoute",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.TourRoutesApiController",
+    "Method": "PutTourRoute",
+    "RelativePath": "api/TourRoutesApi/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "tourRoute",
+        "Type": "Tourist.Domain.Entities.TourRoute",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Kopteva.UI.ApiControllers.TourRoutesApiController",
+    "Method": "DeleteTourRoute",
+    "RelativePath": "api/TourRoutesApi/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
