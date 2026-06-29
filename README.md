@@ -32,3 +32,11 @@
 - **Blazor Server** — интерактивный UI (Kopteva.Blazor)
 - **Bootstrap 5** — стилизация
 - **HTML5 / CSS3 / JavaScript**
+
+## 🎬 Демонстрация
+<img width="1203" height="650" alt="image" src="https://github.com/user-attachments/assets/6d29c675-2ade-45e6-bb37-f194fa005288" />
+
+<img width="1201" height="570" alt="image" src="https://github.com/user-attachments/assets/52772eaf-8857-477c-ac02-a581b315692c" />
+
+<img width="1113" height="606" alt="image" src="https://github.com/user-attachments/assets/6906ef0f-481f-4302-af51-78b532d5875f" />
+
