@@ -14,7 +14,16 @@ var builder = WebApplication.CreateBuilder(args);
 // ============================================
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        // Игнорировать циклические ссылки в JSON
+        options.JsonSerializerOptions.ReferenceHandler =
+            System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+
+        // Форматировать JSON (для удобства отладки)
+        options.JsonSerializerOptions.WriteIndented = true;
+    });
 
 // Swagger (OpenAPI)
 builder.Services.AddEndpointsApiExplorer();

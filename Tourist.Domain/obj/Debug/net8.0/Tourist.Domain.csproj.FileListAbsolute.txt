@@ -1,13 +1,13 @@
+D:\БГУИР\Kopteva\Tourist.Domain\bin\Debug\net8.0\Tourist.Domain.deps.json
+D:\БГУИР\Kopteva\Tourist.Domain\bin\Debug\net8.0\Tourist.Domain.runtimeconfig.json
+D:\БГУИР\Kopteva\Tourist.Domain\bin\Debug\net8.0\Tourist.Domain.dll
+D:\БГУИР\Kopteva\Tourist.Domain\bin\Debug\net8.0\Tourist.Domain.pdb
 D:\БГУИР\Kopteva\Tourist.Domain\obj\Debug\net8.0\Tourist.Domain.csproj.AssemblyReference.cache
 D:\БГУИР\Kopteva\Tourist.Domain\obj\Debug\net8.0\Tourist.Domain.GeneratedMSBuildEditorConfig.editorconfig
 D:\БГУИР\Kopteva\Tourist.Domain\obj\Debug\net8.0\Tourist.Domain.AssemblyInfoInputs.cache
 D:\БГУИР\Kopteva\Tourist.Domain\obj\Debug\net8.0\Tourist.Domain.AssemblyInfo.cs
 D:\БГУИР\Kopteva\Tourist.Domain\obj\Debug\net8.0\Tourist.Domain.csproj.CoreCompileInputs.cache
 D:\БГУИР\Kopteva\Tourist.Domain\obj\Debug\net8.0\Tourist.Domain.sourcelink.json
-D:\БГУИР\Kopteva\Tourist.Domain\bin\Debug\net8.0\Tourist.Domain.deps.json
-D:\БГУИР\Kopteva\Tourist.Domain\bin\Debug\net8.0\Tourist.Domain.runtimeconfig.json
-D:\БГУИР\Kopteva\Tourist.Domain\bin\Debug\net8.0\Tourist.Domain.dll
-D:\БГУИР\Kopteva\Tourist.Domain\bin\Debug\net8.0\Tourist.Domain.pdb
 D:\БГУИР\Kopteva\Tourist.Domain\obj\Debug\net8.0\Tourist.Domain.dll
 D:\БГУИР\Kopteva\Tourist.Domain\obj\Debug\net8.0\refint\Tourist.Domain.dll
 D:\БГУИР\Kopteva\Tourist.Domain\obj\Debug\net8.0\Tourist.Domain.pdb

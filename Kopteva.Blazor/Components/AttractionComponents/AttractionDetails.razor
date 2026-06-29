@@ -1,0 +1,46 @@
+﻿@rendermode InteractiveServer
+
+@if (Attraction != null)
+{
+    <div class="card mt-4 shadow" style="max-width: 24rem;">
+        @if (!string.IsNullOrEmpty(Attraction.Image))
+        {
+            <img src="@Attraction.Image" class="card-img-top" 
+                 alt="@Attraction.Name" 
+                 style="height: 200px; object-fit: cover;" />
+        }
+        else
+        {
+            <div class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center"
+                 style="height: 200px;">
+                Нет изображения
+            </div>
+        }
+        <div class="card-body">
+            <h5 class="card-title">@Attraction.Name</h5>
+            <p class="card-text">@Attraction.Description</p>
+            
+            <div class="d-flex justify-content-between align-items-center">
+                <span class="badge bg-success fs-6">
+                    @(Attraction.TicketPrice == 0 
+                        ? "Бесплатно" 
+                        : $"{Attraction.TicketPrice:N2} руб.")
+                </span>
+                @if (Attraction.TourRoute != null)
+                {
+                    <span class="badge bg-info">
+                        @Attraction.TourRoute.Name
+                    </span>
+                }
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public Tourist.Domain.Entities.Attraction? Attraction { get; set; }
+
+    [Parameter]
+    public EventCallback<Tourist.Domain.Entities.Attraction> AttractionChanged { get; set; }
+}

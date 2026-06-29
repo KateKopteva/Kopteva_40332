@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Новый профиль",
+    "Projects": [
+      {
+        "Path": "Kopteva.UI\\Kopteva.UI.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "Kopteva.Blazor\\Kopteva.Blazor.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

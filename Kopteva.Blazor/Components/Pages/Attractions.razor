@@ -1,0 +1,45 @@
+﻿@page "/attractions"
+@rendermode InteractiveServer
+@using Kopteva.Blazor.Components.AttractionComponents
+@using Kopteva.Blazor.Services
+@using Tourist.Domain.Entities
+
+<PageTitle>Каталог достопримечательностей</PageTitle>
+
+<h1 class="mb-4">Каталог достопримечательностей Беларуси</h1>
+
+<CascadingValue Value="ProductService">
+    <div class="row">
+        <div class="col-md-7">
+            <AttractionsList AttractionSelected="ShowDetails" />
+            <Pager />
+        </div>
+        <div class="col-md-5">
+            <AttractionDetails Attraction="SelectedAttraction" />
+        </div>
+    </div>
+</CascadingValue>
+
+@code {
+    [Inject]
+    public IAttractionService<Attraction>? ProductService { get; set; }
+
+    [Parameter]
+    public Attraction? SelectedAttraction { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (ProductService != null)
+        {
+            await ProductService.GetProducts();
+        }
+    }
+
+    void ShowDetails(int id)
+    {
+        if (ProductService != null)
+        {
+            SelectedAttraction = ProductService.Products.FirstOrDefault(d => d.Id == id);
+        }
+    }
+}

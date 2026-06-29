@@ -1,0 +1,88 @@
+﻿@implements IDisposable
+@rendermode InteractiveServer
+@using Kopteva.Blazor.Services
+@using Tourist.Domain.Entities
+
+<h3>Достопримечательности Беларуси</h3>
+
+@if (ProductService == null)
+{
+    <div class="alert alert-danger">
+        ProductService не внедрён!
+    </div>
+}
+else if (ProductService.Products == null || !ProductService.Products.Any())
+{
+    <div class="alert alert-warning">
+        <i class="bi bi-exclamation-triangle"></i>
+        Данные не загружены или список пуст.
+        <br/>
+        <small>Всего страниц: @ProductService.TotalPages, текущая: @ProductService.CurrentPage</small>
+    </div>
+}
+else
+{
+    <div class="alert alert-info">
+        Загружено: @ProductService.Products.Count() объектов
+    </div>
+    
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Название</th>
+                <th>Маршрут</th>
+                <th>Цена</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ProductService.Products)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@(item.TourRoute?.Name ?? "—")</td>
+                    <td>
+                        @(item.TicketPrice == 0 ? "Бесплатно" : $"{item.TicketPrice:N2} руб.")
+                    </td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-sm"
+                                @onclick="@(() => OnAttractionSelected(item.Id))">
+                            Подробно
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [CascadingParameter]
+    public IAttractionService<Attraction>? ProductService { get; set; }
+
+    [Parameter]
+    public EventCallback<int> AttractionSelected { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Console.WriteLine("[List] OnInitialized вызван");
+        if (ProductService != null)
+        {
+            ProductService.ListChanged += StateHasChanged;
+            Console.WriteLine($"[List] Подписались на ListChanged. Продуктов: {ProductService.Products?.Count() ?? 0}");
+        }
+    }
+
+    public async void OnAttractionSelected(int id)
+    {
+        await AttractionSelected.InvokeAsync(id);
+    }
+
+    public void Dispose()
+    {
+        if (ProductService != null)
+        {
+            ProductService.ListChanged -= StateHasChanged;
+        }
+    }
+}
